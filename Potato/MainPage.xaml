@@ -4,8 +4,25 @@
              x:Class="Potato.MainPage"
              NavigationPage.HasNavigationBar="False">
 
-    <ListView x:Name="FruitListView" ItemSelected="FruitListView_ItemSelected">
-        
+    <ListView x:Name="FruitListView" HasUnevenRows="True" ItemSelected="FruitListView_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Margin="20" Padding="10">
+                        <Image Source="{Binding Image}"
+                               HeightRequest="60"
+                               WidthRequest="60"
+                               Margin="10"/>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"
+                                   FontSize="24"/>
+                            <Label Text="{Binding Description}"
+                               FontSize="18"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
     <!--<StackLayout>
         <Entry Placeholder="Enter your name" x:Name="txtName"/>
